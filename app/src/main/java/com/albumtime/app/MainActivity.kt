@@ -5,10 +5,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.BackHandler
+import androidx.activity.compose.BackHandler
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -105,7 +107,7 @@ fun TemplatesScreen(category:String,onCategory:(String)->Unit,onBack:()->Unit,on
         Button(onClick=onPhoto){Text("＋ Foto propia")}
         Spacer(Modifier.height(8.dp))
         LazyColumn(verticalArrangement=Arrangement.spacedBy(8.dp)) {
-            item { Row(horizontalArrangement=Arrangement.spacedBy(6.dp)) { categories.forEach { c -> FilterChip(selected=category==c,onClick={onCategory(c)},label={Text(c)}) } } }
+            item { Row(Modifier.horizontalScroll(rememberScrollState()),horizontalArrangement=Arrangement.spacedBy(6.dp)) { categories.forEach { c -> FilterChip(selected=category==c,onClick={onCategory(c)},label={Text(c)}) } } }
             items(templates.filter{category=="Todas"||it.category==category}) { TemplateRow(it){onChoose(it)} }
         }
     }
