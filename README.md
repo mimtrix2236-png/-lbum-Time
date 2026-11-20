@@ -1,29 +1,34 @@
 # Álbum Time
 
-Aplicación Android para organizar, visualizar y editar fotografías con herramientas de mejora y estilos creativos.
+Aplicación Android para organizar, visualizar, recortar y componer fotografías con herramientas creativas y funciones inteligentes.
 
-## Objetivo inicial
-- Galería de fotos del dispositivo y álbumes.
-- Vista de imagen con zoom, rotación y recorte.
-- Mejorar nitidez, iluminación, color y resolución aparente.
-- Ediciones creativas: filtros, ilustración, anime y estilos artísticos.
-- Herramientas de edición asistida por IA, siempre con confirmación antes de guardar.
-- Guardar copias editadas sin sobrescribir la foto original.
-- Interfaz sencilla, en español, pensada para Android.
+## Funciones previstas
+- Galería del dispositivo y álbumes.
+- Recorte libre y por proporciones, rotación y ajustes de encuadre.
+- Recortar una persona u objeto como sticker/capa.
+- **Quitar fondo inteligente**: separar sujeto y fondo, con refinado manual de bordes.
+- Pegar y combinar recortes en otras fotos o fondos; mover, escalar, girar y ordenar capas.
+- Cambiar fondos por colores, fotos propias o fondos incluidos.
+- Borrador inteligente para eliminar objetos (IA cuando esté disponible).
+- Brillo, contraste, saturación, temperatura, nitidez y desenfoque.
+- Filtros, estilos creativos, ilustración y anime.
+- Antes/después, deshacer/rehacer.
+- Exportar como copia y compartir; conservar originales por defecto.
 
-## Primera versión (MVP)
-1. Pantalla de inicio / galería.
-2. Seleccionar una imagen desde el teléfono.
-3. Editor con controles básicos: brillo, contraste, saturación, recorte y zoom.
-4. Comparación antes/después.
-5. Guardar y compartir la imagen editada.
+## MVP
+1. Inicio y galería.
+2. Seleccionar foto.
+3. Editor básico: recorte, rotación, brillo, contraste y saturación.
+4. Guardar copia.
+5. Base de capas para composición y recortes.
 
-## Próximas etapas
-- Diseñar interfaz y navegación.
-- Crear proyecto Android.
-- Implementar galería y editor básico.
-- Añadir herramientas de IA cuando se defina la integración disponible.
-- Compilar y probar en dispositivos Android.
+## Etapas
+1. Interfaz Android en español.
+2. Galería y editor base.
+3. Recortes y composición por capas.
+4. Segmentación inteligente y quitar fondo.
+5. Borrado inteligente y estilos IA.
+6. Compilar, probar y entregar APK.
 
 ## Privacidad
-Las imágenes originales se conservan. La app debe explicar claramente cuándo una edición se procesa localmente o requiere enviar la imagen a un servicio externo.
+Priorizar procesamiento local. Las funciones que requieran servicios externos deben avisar claramente si la imagen se envía, y si se requiere conexión, cuenta o costo.
