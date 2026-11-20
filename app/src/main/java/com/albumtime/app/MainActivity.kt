@@ -1,5 +1,6 @@
 package com.albumtime.app
 
+import androidx.activity.compose.setContent
 import android.content.ContentValues
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
