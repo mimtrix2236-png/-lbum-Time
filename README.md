@@ -48,3 +48,8 @@ Los archivos de imagen que se hayan compartido o generado en conversaciones ante
 
 ## Privacidad
 Priorizar procesamiento local. Las funciones que requieran servicios externos deben avisar claramente si la imagen se envía, y si se requiere conexión, cuenta o costo.
+
+
+## Catálogo de plantillas inicial
+
+Se registró el primer catálogo editable en `templates/catalog.json`, con estilos de parque/naturaleza, fondo verde y recorte, verano/piscina, retrato mejorado, cambio de estilo/vestuario, romántica rosa, anime y montaje libre. La documentación está en `templates/README.md`. Las plantillas están definidas como especificaciones; sus funciones aún deben implementarse en la app y las fotos de referencia deben incorporarse como recursos reales antes de empaquetarlas.
