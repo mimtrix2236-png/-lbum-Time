@@ -1,116 +1,13 @@
 {
-  "schemaVersion": 1,
-  "app": "Album Time",
-  "note": "Catalog of editable template definitions. Conversation reference photos are not included as binary assets until explicitly transferred into the repository.",
-  "categories": [
-    {"id": "backgrounds", "name": "Fondos y escenarios"},
-    {"id": "green-screen", "name": "Recorte y fondo verde"},
-    {"id": "summer", "name": "Verano y vacaciones"},
-    {"id": "portrait", "name": "Retratos y mejoras"},
-    {"id": "fashion", "name": "Estilos y vestuario"},
-    {"id": "art", "name": "Arte y anime"},
-    {"id": "romantic", "name": "Románticas"},
-    {"id": "composites", "name": "Composiciones"}
-  ],
+  "version": 1,
   "templates": [
-    {
-      "id": "park-natural",
-      "name": "Parque natural",
-      "category": "backgrounds",
-      "description": "Retrato en parque o bosque; permite conservar el sujeto y cambiar o mejorar el entorno.",
-      "previewAsset": null,
-      "referenceAssets": [],
-      "editable": true,
-      "layers": ["subject", "background", "light-color-adjustments"],
-      "actions": ["auto-cutout", "replace-background", "relight", "crop", "color-adjust"]
-    },
-    {
-      "id": "green-screen-cutout",
-      "name": "Recorte de estudio (fondo verde)",
-      "category": "green-screen",
-      "description": "Separar a la persona del fondo uniforme, refinar cabello y bordes, y colocarla sobre un fondo elegido.",
-      "previewAsset": null,
-      "referenceAssets": [],
-      "editable": true,
-      "layers": ["subject-cutout", "new-background"],
-      "actions": ["remove-background", "edge-refine", "replace-background", "scale", "rotate", "position"]
-    },
-    {
-      "id": "summer-pool",
-      "name": "Verano junto a la piscina",
-      "category": "summer",
-      "description": "Composición de verano con piscina, plantas, luz cálida y ambiente de vacaciones.",
-      "previewAsset": null,
-      "referenceAssets": [],
-      "editable": true,
-      "layers": ["subject", "pool-background", "foreground-decor"],
-      "actions": ["auto-cutout", "replace-background", "add-decor", "color-adjust", "crop"]
-    },
-    {
-      "id": "summer-park",
-      "name": "Verano en el parque",
-      "category": "summer",
-      "description": "Escenario exterior verde con árboles, luz natural y look fotográfico.",
-      "previewAsset": null,
-      "referenceAssets": [],
-      "editable": true,
-      "layers": ["subject", "park-background"],
-      "actions": ["auto-cutout", "replace-background", "relight", "color-adjust"]
-    },
-    {
-      "id": "portrait-enhance",
-      "name": "Retrato mejorado",
-      "category": "portrait",
-      "description": "Mejora general de iluminación, nitidez, color y encuadre conservando la foto original.",
-      "previewAsset": null,
-      "referenceAssets": [],
-      "editable": true,
-      "layers": ["original-photo", "enhancement-adjustments"],
-      "actions": ["brightness", "contrast", "saturation", "sharpness", "noise-reduction", "crop"]
-    },
-    {
-      "id": "costume-studio",
-      "name": "Cambio de estilo / vestuario",
-      "category": "fashion",
-      "description": "Plantilla de prueba para cambios de ropa, accesorios, peinado o estilo visual sobre una foto.",
-      "previewAsset": null,
-      "referenceAssets": [],
-      "editable": true,
-      "layers": ["original-photo", "style-transformation"],
-      "actions": ["style-reference", "wardrobe-edit", "accessory-edit", "preserve-identity"]
-    },
-    {
-      "id": "pink-romantic",
-      "name": "Romántica rosa",
-      "category": "romantic",
-      "description": "Decoración rosa, corazones, brillo suave y elementos románticos que pueden editarse por separado.",
-      "previewAsset": null,
-      "referenceAssets": [],
-      "editable": true,
-      "layers": ["subject", "pink-background", "hearts", "sparkles"],
-      "actions": ["auto-cutout", "replace-background", "add-stickers", "color-adjust", "text"]
-    },
-    {
-      "id": "anime-illustration",
-      "name": "Retrato anime",
-      "category": "art",
-      "description": "Transformación artística tipo anime/ilustración, con intensidad ajustable.",
-      "previewAsset": null,
-      "referenceAssets": [],
-      "editable": true,
-      "layers": ["original-photo", "art-style"],
-      "actions": ["anime-style", "style-strength", "preserve-composition", "compare-before-after"]
-    },
-    {
-      "id": "custom-composite",
-      "name": "Montaje libre",
-      "category": "composites",
-      "description": "Usar fotos propias, recortes, stickers, fondos y texto para crear una composición desde cero.",
-      "previewAsset": null,
-      "referenceAssets": [],
-      "editable": true,
-      "layers": ["user-layers"],
-      "actions": ["import-photo", "cutout", "add-background", "stickers", "text", "reorder-layers", "save-as-template"]
-    }
+    {"id":"green-screen-cutout","name":"Fondo verde / recorte","category":"Recortes","description":"Recortar sujeto y reemplazar escenario."},
+    {"id":"devil-costume","name":"Disfraz de diablita","category":"Disfraces","description":"Cuernos, capa, tridente y vestuario rojo."},
+    {"id":"color-wig","name":"Peluca de colores","category":"Estilos","description":"Cambiar color y estilo de cabello."},
+    {"id":"school-look","name":"Look colegial","category":"Disfraces","description":"Camisa, corbata y look alternativo."},
+    {"id":"full-body-portrait","name":"Retrato de cuerpo entero","category":"Retratos","description":"Composición con pose y fondo."},
+    {"id":"summer-pool","name":"Verano / piscina","category":"Fondos","description":"Fondos de verano."},
+    {"id":"collage","name":"Collage","category":"Composición","description":"Componer varias fotos y capas."},
+    {"id":"romantic","name":"Romántica","category":"Estilos","description":"Flores, tonos rosa y corazones."}
   ]
 }

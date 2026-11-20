@@ -1,10 +1,11 @@
 package com.albumtime.app
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.compose.BackHandler
+import androidx.activity.BackHandler
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -22,7 +23,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import android.net.Uri
 
 private val Ink = Color(0xFF191624)
 private val Violet = Color(0xFF7C4DFF)
@@ -55,7 +55,6 @@ fun AlbumTimeApp() {
     var category by remember { mutableStateOf("Todas") }
     val picker = rememberLauncherForActivityResult(ActivityResultContracts.GetContent()) { uri -> if(uri!=null){photo=uri;page="editor"} }
     BackHandler(page!="home") { page="home" }
-
     MaterialTheme(colorScheme = lightColorScheme(primary=Violet, background=Soft, surface=Color.White)) {
         when(page) {
             "templates" -> TemplatesScreen(category, {category=it}, onBack={page="home"}, onChoose={selectedTemplate=it;page="templatePreview"}, onPhoto={picker.launch("image/*")})
@@ -84,13 +83,9 @@ fun HomeScreen(onTemplates:()->Unit, onImport:()->Unit) {
         Spacer(Modifier.height(24.dp))
         Text("Plantillas destacadas",fontWeight=FontWeight.Bold,color=Ink,style=MaterialTheme.typography.titleLarge)
         Spacer(Modifier.height(10.dp))
-        templates.take(4).forEach { t ->
-            TemplateRow(t) { onTemplates() }
-            Spacer(Modifier.height(8.dp))
-        }
+        templates.take(4).forEach { t -> TemplateRow(t) { onTemplates() }; Spacer(Modifier.height(8.dp)) }
     }
 }
-
 @Composable
 fun ActionCard(title:String,subtitle:String,emoji:String,action:()->Unit) {
     Row(Modifier.fillMaxWidth().background(Color.White,RoundedCornerShape(20.dp)).clickable{action()}.padding(18.dp),verticalAlignment=Alignment.CenterVertically) {
@@ -107,7 +102,7 @@ fun TemplatesScreen(category:String,onCategory:(String)->Unit,onBack:()->Unit,on
         Row(verticalAlignment=Alignment.CenterVertically) { IconButton(onClick=onBack){Icon(Icons.Default.ArrowBack,null)}; Text("Plantillas",style=MaterialTheme.typography.headlineSmall,fontWeight=FontWeight.Bold) }
         Text("Elegí un estilo o empezá con tu foto",color=Color.Gray)
         Spacer(Modifier.height(10.dp))
-        Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(8.dp)) { Button(onClick=onPhoto){Text("＋ Foto propia")}; OutlinedButton(onClick=onCategoryInfo){Text("Mis plantillas")} }
+        Button(onClick=onPhoto){Text("＋ Foto propia")}
         Spacer(Modifier.height(8.dp))
         LazyColumn(verticalArrangement=Arrangement.spacedBy(8.dp)) {
             item { Row(horizontalArrangement=Arrangement.spacedBy(6.dp)) { categories.forEach { c -> FilterChip(selected=category==c,onClick={onCategory(c)},label={Text(c)}) } } }
@@ -115,7 +110,6 @@ fun TemplatesScreen(category:String,onCategory:(String)->Unit,onBack:()->Unit,on
         }
     }
 }
-private fun onCategoryInfo() {}
 @Composable
 fun TemplateRow(template:Template,onClick:()->Unit) {
     Row(Modifier.fillMaxWidth().background(Color.White,RoundedCornerShape(18.dp)).clickable{onClick()}.padding(14.dp),verticalAlignment=Alignment.CenterVertically) {
@@ -147,14 +141,13 @@ fun EditorScreen(uri:Uri?,onBack:()->Unit,onChangePhoto:()->Unit) {
     Column(Modifier.fillMaxSize().background(Soft).padding(16.dp)) {
         Row(verticalAlignment=Alignment.CenterVertically) { IconButton(onClick=onBack){Icon(Icons.Default.ArrowBack,null)};Text("Editor",style=MaterialTheme.typography.headlineSmall,fontWeight=FontWeight.Bold);Spacer(Modifier.weight(1f));TextButton(onClick=onChangePhoto){Text("Cambiar foto")} }
         Box(Modifier.fillMaxWidth().weight(1f).background(Color.Black,RoundedCornerShape(18.dp)),contentAlignment=Alignment.Center) {
-            if(uri!=null) AsyncImage(model=uri,contentDescription="Foto seleccionada",modifier=Modifier.fillMaxSize())
-            else Text("Importá una imagen",color=Color.White)
+            if(uri!=null) AsyncImage(model=uri,contentDescription="Foto seleccionada",modifier=Modifier.fillMaxSize()) else Text("Importá una imagen",color=Color.White)
         }
         Text("Ajustes básicos",fontWeight=FontWeight.Bold)
         SliderRow("Brillo",brightness,-1f..1f,{brightness=it})
         SliderRow("Contraste",contrast,0f..2f,{contrast=it})
         SliderRow("Saturación",saturation,0f..2f,{saturation=it})
-        Button(onClick={ /* export is added in next implementation stage */ },modifier=Modifier.fillMaxWidth()) { Text("Guardar copia") }
+        Button(onClick={},modifier=Modifier.fillMaxWidth()) { Text("Guardar copia") }
     }
 }
 @Composable
